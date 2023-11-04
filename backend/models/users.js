@@ -25,12 +25,7 @@ const mongoSchema = new mongoose.Schema({
     },password: {
         type: String,
         required: true,
-        validate: {
-            validator: function (value) {
-                return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
-            },
-            message: 'Password should contain at least 1 lowercase, 1 uppercase, 1 digit, 1 special character, and be at least 8 characters long.'
-        }
+        
     },
     phoneNumber: {
         type: String,
@@ -46,7 +41,7 @@ const mongoSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ["user", "admin"],
+        enum: ["user", "Admin"],
         default: 'user'
     },
     resetPasswordOtp: {
