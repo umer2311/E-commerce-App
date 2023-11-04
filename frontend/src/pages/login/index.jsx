@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
     // You can add your login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
+    console.log("Username:", username);
+    console.log("Password:", password);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-red-400">Log in to your account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-red-400">
+            Log in to your account
+          </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <input type="hidden" name="remember" value="true" />
-           <div className="rounded-md shadow-sm -space-y-px">
+          <div className="rounded-md shadow-sm -space-y-px">
             <div className="mb-4">
-              <label htmlFor="username" className="sr-only">Username</label>
+              <label htmlFor="username" className="sr-only">
+                Username
+              </label>
               <input
                 id="username"
                 name="username"
@@ -35,7 +39,9 @@ const Login = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="password" className="sr-only">Password</label>
+              <label htmlFor="password" className="sr-only">
+                Password
+              </label>
               <input
                 id="password"
                 name="password"
@@ -52,7 +58,10 @@ const Login = () => {
 
           <div className="flex items-center justify-between">
             <div className="text-sm">
-              <a href="#" className="font-medium text-red-400 hover:text-red-500">
+              <a
+                href="#"
+                className="font-medium text-red-400 hover:text-red-500"
+              >
                 Forgot your password?
               </a>
             </div>
@@ -65,10 +74,10 @@ const Login = () => {
             >
               Log In
             </button>
-                  </div>
-                  
-                  <div className="text-sm text-center">
-            Don't have an account?{' '}
+          </div>
+
+          <div className="text-sm text-center">
+            Don't have an account?{" "}
             <a href="#" className="font-medium text-red-400 hover:text-red-500">
               Sign Up
             </a>

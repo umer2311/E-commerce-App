@@ -1,31 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const SignUp = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [contactNumber, setContactNumber] = useState('');
-  const [role, setRole] = useState('user');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [role, setRole] = useState("user");
 
   const handleSignUp = (e) => {
     e.preventDefault();
     // You can add your Sign Up logic here
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Contact Number:', contactNumber);
-    console.log('Role:', role);
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Contact Number:", contactNumber);
+    console.log("Role:", role);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-red-400">Sign Up for an Account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-red-400">
+            Sign Up for an Account
+          </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSignUp}>
+        <form method="POST" className="mt-8 space-y-6" onSubmit={handleSignUp}>
           <input type="hidden" name="remember" value="true" />
           <div className="space-y-4">
             <div>
-              <label htmlFor="name" className="sr-only">Name</label>
+              <label htmlFor="name" className="sr-only">
+                Name
+              </label>
               <input
                 id="name"
                 name="name"
@@ -39,7 +43,9 @@ const SignUp = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="sr-only">Email</label>
+              <label htmlFor="email" className="sr-only">
+                Email
+              </label>
               <input
                 id="email"
                 name="email"
@@ -53,7 +59,9 @@ const SignUp = () => {
               />
             </div>
             <div>
-              <label htmlFor="contactNumber" className="sr-only">Contact Number</label>
+              <label htmlFor="contactNumber" className="sr-only">
+                Contact Number
+              </label>
               <input
                 id="contactNumber"
                 name="contactNumber"
@@ -88,7 +96,7 @@ const SignUp = () => {
             </button>
           </div>
           <div className="text-sm text-center">
-            Already have an account?{' '}
+            Already have an account?{" "}
             <a href="#" className="font-medium text-red-400 hover:text-red-500">
               Log In
             </a>
