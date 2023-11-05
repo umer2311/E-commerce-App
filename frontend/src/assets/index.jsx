@@ -1,4 +1,5 @@
-import Pic from "../pages/"
+import Pic from "./images/logo512.png"
+import Pic2 from "../../public/pic.png"
 export const products = [
     {
         name: "Product 1",
@@ -12,10 +13,11 @@ export const products = [
         },
         price: 50.0,
         stock: 100,
-        images: [{ Pic }, { Pic }],
+        images: [{ Pic }, { Pic2 }],
         isTrending: true,
         isHotSeller: false,
         saleDiscount: 0,
+        sold:31
     },
     {
         name: "Product 2",
@@ -29,7 +31,7 @@ export const products = [
         },
         price: 65.0,
         stock: 75,
-        images: [{ Pic }],
+        images: [{Pic},{Pic2}],
         isTrending: false,
         isHotSeller: true,
         saleDiscount: 15,
