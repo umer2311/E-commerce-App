@@ -1,14 +1,19 @@
 
 import './App.css'
-import Dashboard from './pages/dashboard'
-import Login from './pages/login'
-import SignUp from './pages/signup'
+ import HomePage from './pages/Homepage/index'
+//  import Dashboard from './pages/dashboard'
+// import Login from './pages/login'
+// import SignUp from './pages/signup'
+
+
 
 function App() {
   
   return (
     <>
-<Dashboard />
+    {/* <Dashboard /> */}
+     <HomePage />
+
     </>
   )
 }
