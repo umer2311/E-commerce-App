@@ -1,12 +1,14 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faUser, faBagShopping } from '@fortawesome/free-solid-svg-icons'
+import img0 from '../../../assets/images/img-0.png'
 
 export const Navbar = () => {
   return (
    <div className='bg-red-100'>
-    <div className='flex justify-between items-center h-24 max-w-{1240px} mx-auto px-4 mr-14 ml-14 bg-red-300 text-xs text-black'>
-      <div>
+    <div className='flex justify-between items-center h-16 max-w-{1240px} mx-auto px-4 mr-14 ml-14 bg-red-300 text-xs text-black'>
+      <div className='flex gap-3 ml-4'>
+        <img src={img0} />
           <h1 className='w-full text-3xl font-bold text-{black}'>Amor</h1>
       </div>
 
@@ -23,9 +25,9 @@ export const Navbar = () => {
       </div>
       
       <div className='space-x-4'>
-      <FontAwesomeIcon icon={faMagnifyingGlass} />
-      <FontAwesomeIcon icon={faUser} />
-      <FontAwesomeIcon icon={faBagShopping } />
+      <FontAwesomeIcon icon={faMagnifyingGlass} className='text-xl'/>
+      <FontAwesomeIcon icon={faUser} className='text-xl'/>
+      <FontAwesomeIcon icon={faBagShopping } className='text-xl'/>
       </div>
 
         
