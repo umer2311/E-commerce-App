@@ -48,7 +48,9 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-red-400">Log in to your account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-red-400">
+            Log in to your account
+          </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <input type="hidden" name="remember" value="true" />
@@ -68,7 +70,9 @@ const Login = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="password" className="sr-only">Password</label>
+              <label htmlFor="password" className="sr-only">
+                Password
+              </label>
               <input
                 id="password"
                 name="password"
@@ -85,7 +89,10 @@ const Login = () => {
 
           <div className="flex items-center justify-between">
             <div className="text-sm">
-              <a href="#" className="font-medium text-red-400 hover:text-red-500">
+              <a
+                href="#"
+                className="font-medium text-red-400 hover:text-red-500"
+              >
                 Forgot your password?
               </a>
             </div>
