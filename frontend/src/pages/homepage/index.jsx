@@ -1,10 +1,21 @@
-import React from 'react'
+import React from "react";
 
-const Homepage = () => {
-  return (
-    <>
-    <div>hello world</div>
-    </>
-  )
+import { Navbar } from "./compoments/Navbar";
+import { Hero } from "./compoments/Hero";
+import { Productname } from "./compoments/Productname";
+import { Categories } from "./compoments/Categories";
+
+
+
+
+function App() {
+    return (
+        <>
+        <Navbar />
+        <Hero />
+        <Productname />
+        <Categories />
+        </>
+    )
 }
-export default Homepage
+export default App;

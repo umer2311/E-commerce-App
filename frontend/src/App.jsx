@@ -7,6 +7,7 @@ import SignUp from './pages/signup'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import thunkStore from "./redux/store";
 import Homepage from './pages/homepage';
+import Products from './pages/ProductDetail/index';
 
 function App() {
 
@@ -20,12 +21,14 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/homepage" element={<Homepage />} />
+             <Route path="/products" element={<Products/>} />
           </Routes>
         </div>
       </Router>
     </ Provider>
 
   );
+  
 }
 
 export default App
