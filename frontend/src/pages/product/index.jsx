@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { products } from '../../assets/index'
+import { Navbar } from '../homepage/compoments/Navbar';
 
 
 
@@ -71,6 +72,7 @@ const ProductPage = () => {
 
     return (
         <>
+            <Navbar />
             <div className='flex flex-col justify-between lg:flex-row gap-16 lg:items-center'>
 
                 <div className='flex flex-col gap-6 lg:w-2/4'>

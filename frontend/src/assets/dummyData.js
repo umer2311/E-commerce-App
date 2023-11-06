@@ -3,23 +3,7 @@ import Pic from "./images/logo512.png"
 
 
 export const products = [
-    {
-        name: "Product 1",
-        company: "Company A",
-        categories: "Category 1",
-        ratings: 4,
-        description: {
-            statement: "Product 1 Description",
-            size: "Medium",
-            origin: "Country A",
-        },
-        price: 50.0,
-        stock: 100,
-        images: [{ Pic }, { Pic }],
-        isTrending: true,
-        isHotSeller: false,
-        saleDiscount: 0,
-    },
+
     {
         name: "Product 2",
         company: "Company B",
@@ -54,7 +38,72 @@ export const products = [
         isHotSeller: true,
         saleDiscount: 20,
     },
-
+    {
+        name: "Product 07",
+        company: "Company C",
+        categories: "Category 1",
+        ratings: 4,
+        description: {
+            statement: "Product 3 Description",
+            size: "Small",
+            origin: "Country C",
+        },
+        price: 45.0,
+        stock: 120,
+        images: [{ Pic }],
+        isTrending: true,
+        isHotSeller: true,
+        saleDiscount: 20,
+    },
+    {
+        name: "Product 1",
+        company: "Company C",
+        categories: "Category 1",
+        ratings: 4,
+        description: {
+            statement: "Product 3 Description",
+            size: "Small",
+            origin: "Country C",
+        },
+        price: 45.0,
+        stock: 120,
+        images: [{ Pic }],
+        isTrending: true,
+        isHotSeller: true,
+        saleDiscount: 20,
+    }, {
+        name: "Product 65",
+        company: "Company C",
+        categories: "Category 1",
+        ratings: 4,
+        description: {
+            statement: "Product 3 Description",
+            size: "Small",
+            origin: "Country C",
+        },
+        price: 45.0,
+        stock: 120,
+        images: [{ Pic }],
+        isTrending: true,
+        isHotSeller: true,
+        saleDiscount: 20,
+    }, {
+        name: "Product 22",
+        company: "Company C",
+        categories: "Category 1",
+        ratings: 4,
+        description: {
+            statement: "Product 3 Description",
+            size: "Small",
+            origin: "Country C",
+        },
+        price: 45.0,
+        stock: 120,
+        images: [{ Pic }],
+        isTrending: true,
+        isHotSeller: true,
+        saleDiscount: 20,
+    },
 ];
 
 
@@ -73,6 +122,23 @@ export const blogs = [
     },
     {
         id: 3,
+        image: 'blog-image-3.jpg',
+        title: 'Blog Title 3',
+        description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    }, {
+        id: 4,
+        image: 'blog-image-3.jpg',
+        title: 'Blog Title 3',
+        description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    {
+        id: 45,
+        image: 'blog-image-3.jpg',
+        title: 'Blog Title 3',
+        description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    {
+        id: 54,
         image: 'blog-image-3.jpg',
         title: 'Blog Title 3',
         description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',

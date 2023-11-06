@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faUser, faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import img0 from '../../../assets/images/img-0.png'
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
@@ -14,12 +15,23 @@ export const Navbar = () => {
 
       <div >
 
-        <ul className='flex'>
-            <a href='#Home'><li className='hover:text-white p-4 hover:border-b-2'>Home</li></a>
-            <a href='#Home'><li className='p-4 hover:text-white'>Shop</li></a>
-            <a href='#Home'><li className='p-4 hover:text-white'>Products</li></a>
-            <a href='#Home'><li className='p-4 hover:text-white'>Blogs</li></a>
-            <a href='#Home'><li className='p-4 hover:text-white'>About Us</li></a>
+          <ul className='flex'>
+            <li>
+            <Link to="/" className='p-4 hover:text-white'>Home</Link>
+            </li>
+             <li>
+              <Link to="/shop" className='p-4 hover:text-white'>Shop</Link>
+            </li>
+             <li>
+            <Link to="/products" className='p-4 hover:text-white'>Products</Link>
+            </li>
+              <li>
+            <Link to="/blog" className='p-4 hover:text-white'>Blogs</Link>
+            </li>
+               <li>
+            <Link to="/aboutUs" className='p-4 hover:text-white'>About Us</Link>
+            </li>
+
         </ul>
 
       </div>

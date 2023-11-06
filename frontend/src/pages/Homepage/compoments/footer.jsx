@@ -1,7 +1,7 @@
 import React from 'react';
-import visa from "../../assets/images/visa.png"
-import mastercard from "../../assets/images/mastercard.png"
-import easypaisa from "../../assets/images/easy.png"
+import visa from "../../../assets/images/visa.png"
+import mastercard from "../../../assets/images/mastercard.png"
+import easypaisa from "../../../assets/images/easy.png"
 
 const Footer = () => {
   return (

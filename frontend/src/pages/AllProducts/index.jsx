@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import SerumImg from "../../../src/assets/images/SkinLightningBottle.webp";
 import Filter from "./components/filter";
+import { Navbar } from "../homepage/compoments/Navbar";
 
 const Product = () => {
   return (
     <div>
+      <Navbar />
       <div className="w-full h-full bg-red-200 flex items-center mx-auto px-28 justify-between">
         <div className="left w-1/2 my-7 ">
           <h2 className="text-4xl font-bold mb-4 font-serif">Serum</h2>

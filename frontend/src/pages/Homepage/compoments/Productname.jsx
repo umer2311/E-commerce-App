@@ -9,8 +9,8 @@ import img6 from '../../../assets/images/image-14.png'
 export const Productname = () => {
   return (
    
-    <div className=''>
-      <div className='inline-flex ml-24 mt-10'>
+    <div className='container mx-auto'>
+      <div className='inline-flex  mt-10'>
         <img src={img1} className='p-4 w-32 h-12'/>
         
         <img src={img2} className='p-4 w-32 h-12'/>
