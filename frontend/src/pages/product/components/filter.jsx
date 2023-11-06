@@ -1,20 +1,7 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon, StarIcon } from "@heroicons/react/24/outline";
+import { StarIcon as FilledStar } from "@heroicons/react/24/solid";
 import {
   ChevronDownIcon,
   FunnelIcon,
@@ -24,7 +11,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 ///  self grid import
-import { FilteredItems } from "./filteredItems";
+// import { Grid } from "./Grid";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -42,15 +29,15 @@ const subCategories = [
 ];
 const filters = [
   {
-    id: "color",
-    name: "Color",
+    id: "brands",
+    name: "Brands", //changing name color to Brand
     options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
-      { value: "blue", label: "Blue", checked: true },
-      { value: "brown", label: "Brown", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
+      { value: "Louis Vitae", label: "Louis Vitae", checked: false },
+      { value: "GUCCI", label: "GUCCI", checked: false },
+      { value: "L'Oreal Paris", label: "L'Oreal Paris", checked: true },
+      { value: "Glossier", label: "Glossier", checked: false },
+      { value: "Estee Lauder", label: "Estee Lauder", checked: false },
+      { value: "MAC Cosmetics", label: "MAC Cosmetics", checked: false },
     ],
   },
   {
@@ -65,10 +52,10 @@ const filters = [
     ],
   },
   {
-    id: "size",
-    name: "Size",
+    id: "Ratings",
+    name: "Ratings",
     options: [
-      { value: "2l", label: "2L", checked: false },
+      { value: "2l", label: "21", checked: false },
       { value: "6l", label: "6L", checked: false },
       { value: "12l", label: "12L", checked: false },
       { value: "18l", label: "18L", checked: false },
@@ -82,11 +69,20 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+const UnfilledStar = () => {
+  return <StarIcon className="h-6 w-6" aria-hidden="true" />;
+};
+
+const FilledUpStar = () => {
+  return <FilledStar className="h-6 w-6 text-yellow-300 " aria-hidden="true" />;
+};
+export default function Filter() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
     <div className="bg-white">
+      {/* <UnfilledStar />
+      <FilledUpStar /> */}
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -189,7 +185,7 @@ export default function Example() {
                                       defaultValue={option.value}
                                       type="checkbox"
                                       defaultChecked={option.checked}
-                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                      className="h-4 w-4 rounded border-gray-300 text-red-300 focus:ring-red-300"
                                     />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -215,7 +211,7 @@ export default function Example() {
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-              New Arrivals
+              Products
             </h1>
 
             <div className="flex items-center">
@@ -343,7 +339,7 @@ export default function Example() {
                                   defaultValue={option.value}
                                   type="checkbox"
                                   defaultChecked={option.checked}
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                  className="h-4 w-4 rounded border-gray-300 text-red-300 focus:ring-red-300"
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -362,7 +358,9 @@ export default function Example() {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3">{<FilteredItems />}</div>
+              <div className="lg:col-span-3">
+                <h1>paste your grid here</h1>
+              </div>
             </div>
           </section>
         </main>
