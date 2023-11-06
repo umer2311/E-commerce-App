@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import TopNavbar from './components/navbar'; 
 import AdminTable from './components/adminTable'; 
-
+import { BrowserRouter as Router, Routes,Route } from 'react-router-dom';
+import { Provider } from 'react-redux'; 
+import thunkStore from "../../redux/store";
+import User from './components/user'
+import products from './components/products'
+import orders from './components/orders'
 const Dashboard = () => {
   const [admins, setAdmins] = useState([
     { id: 1, name: 'Admin 1', addProduct: false, editProduct: false, deleteProduct: false, status:"Active" },
@@ -42,18 +47,19 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <TopNavbar adminName="Super Admin" notifications={notifications} />
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-semibold text-gray-800 mb-4">Admin Management</h1>
-        <AdminTable
-          admins={admins}
-          handleAddProduct={handleAddProduct}
-          handleEditProduct={handleEditProduct}
-          handleDeleteProduct={handleDeleteProduct}
-        />
+    
+      
+
+    <Provider store={thunkStore}>
+    
+      <div>
+        <TopNavbar adminName="Admin" notifications={notifications} />
+        <User />
+      
+      
       </div>
-    </div>
+   
+  </Provider> 
   );
 };
 

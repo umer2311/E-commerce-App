@@ -1,15 +1,48 @@
 import React, { useState } from 'react';
+import {Link,useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../redux/loginSlice';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // You can add your login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const loginUserObject = {
+    email,
+    password,
   };
+  const clearForm = () => {
+   
+    setEmail('');
+    setPassword('');
+    
+  };
+  const handleLogin = async (event) => {
+    try {
+      event.preventDefault();
+      await dispatch(loginUser(loginUserObject));
+     
+      const isAuthenticated = localStorage.getItem('token') !== null;
+      const user = JSON.parse(localStorage.getItem('user'));
+      clearForm();
+      console.log(`${user.role}`)
+      console.log(`${isAuthenticated}`)
+      if (isAuthenticated && user.role==='Admin') {
+        navigate('/dashboard');
+      }
+      else
+      {
+        navigate('/homepage');
+      }
+    } catch (error) {
+      console.error('Login failed:', error.response.data.error);
+    }
+  };
+
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -19,17 +52,17 @@ const Login = () => {
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <input type="hidden" name="remember" value="true" />
-           <div className="rounded-md shadow-sm -space-y-px">
+          <div className="rounded-md shadow-sm -space-y-px">
             <div className="mb-4">
-              <label htmlFor="username" className="sr-only">Username</label>
+              <label htmlFor="username" className="sr-only">Email</label>
               <input
-                id="username"
-                name="username"
+                id="email"
+                name="email"
                 type="text"
-                autoComplete="username"
+                autoComplete="email"
                 required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-#FFAEAE placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Username"
               />
@@ -65,13 +98,13 @@ const Login = () => {
             >
               Log In
             </button>
-                  </div>
-                  
-                  <div className="text-sm text-center">
+          </div>
+
+          <div className="text-sm text-center">
             Don't have an account?{' '}
-            <a href="#" className="font-medium text-red-400 hover:text-red-500">
+            <Link as ={Link} to='/signup' className="font-medium text-red-400 hover:text-red-500">
               Sign Up
-            </a>
+            </Link>
           </div>
         </form>
       </div>

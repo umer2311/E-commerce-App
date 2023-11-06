@@ -28,6 +28,7 @@ const signUpUser=async(req , res)=> {
 
         })
         await user.save()
+        console.log("umer")
         res.json(user)
     } catch (error) {
         res.status(500).json({error:error.message})
@@ -42,13 +43,14 @@ const LoginUser =async(req,res) =>{
         if(user && await bcrypt.compare(password,user.password))
         {
             const token = jwt.sign({userId: user.id, email:user.email, role:user.role}, process.env.PRIVATE_KEY,{expiresIn: "10 minute"})
-            res.status(200).json({token})
+            res.status(200).json({token,user})
+            console.log("nawaz")
         }
         else
         {
             res.status(401).json({error: "Invalid credentials"})
         }
-
+        
     }
     catch(error)
     {
@@ -159,6 +161,7 @@ const updateUser=async(req , res)=> {
     if(!user){
         return res.status(404).json({message:"user NOT FOUND"})
     }
+    console.log("2311");
     res.json(user)
     } catch (error) {
         res.status(500).json({error:error.message})

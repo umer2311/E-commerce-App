@@ -1,20 +1,40 @@
 import React, { useState } from 'react';
+import {Link,useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signupUser } from '../../redux/loginSlice';
 
 const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [contactNumber, setContactNumber] = useState('');
-  const [role, setRole] = useState('user');
+  const [password, setpassword] = useState('');
+  const [phoneNumber, setContactNumber] = useState('');
+  //const [role, setRole] = useState('user');
+  const user={
+    name,email,password,phoneNumber
+  }
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    // You can add your Sign Up logic here
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Contact Number:', contactNumber);
-    console.log('Role:', role);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const clearForm = () => {
+    setName('');
+    setEmail('');
+    setpassword('');
+    setContactNumber('');
   };
 
+  const handleSignUp = async (event) => {
+
+    try {
+      event.preventDefault();
+      await dispatch(signupUser(user));
+      clearForm();
+      navigate('/login');
+    } catch (error) {
+      console.error('Signup failed:', error.response.data.error);
+    }
+  };
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -53,6 +73,20 @@ const SignUp = () => {
               />
             </div>
             <div>
+              <label htmlFor="pass" className="sr-only">Password</label>
+              <input
+                id="pass"
+                name="pass"
+                type="pass"
+                autoComplete="pass"
+                required
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
+                className="rounded-md w-full px-3 py-2 border border-#FFAEAE placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Password"
+              />
+            </div>
+            <div>
               <label htmlFor="contactNumber" className="sr-only">Contact Number</label>
               <input
                 id="contactNumber"
@@ -60,24 +94,13 @@ const SignUp = () => {
                 type="tel"
                 autoComplete="tel"
                 required
-                value={contactNumber}
+                value={phoneNumber}
                 onChange={(e) => setContactNumber(e.target.value)}
                 className="rounded-md w-full px-3 py-2 border border-#FFAEAE placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Contact Number"
               />
             </div>
-            <div className="relative rounded-md shadow-sm">
-              <select
-                id="role"
-                name="role"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                className="block w-full pl-3 pr-10 py-2 border border-#FFAEAE rounded-md bg-white text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              >
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
+           
           </div>
           <div>
             <button
@@ -89,9 +112,9 @@ const SignUp = () => {
           </div>
           <div className="text-sm text-center">
             Already have an account?{' '}
-            <a href="#" className="font-medium text-red-400 hover:text-red-500">
+            <Link as={Link} to='/login' className="font-medium text-red-400 hover:text-red-500">
               Log In
-            </a>
+            </Link>
           </div>
         </form>
       </div>
