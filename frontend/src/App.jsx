@@ -7,7 +7,7 @@ import SignUp from './pages/signup'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import thunkStore from "./redux/store";
 import Homepage from './pages/homepage';
-import Products from './pages/AllProducts/index';
+import Products from './pages/allProducts/index';
 import SingleProduct from "./pages/product";
 
 function App() {
