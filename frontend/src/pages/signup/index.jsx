@@ -39,13 +39,17 @@ const SignUp = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-red-400">Sign Up for an Account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-red-400">
+            Sign Up for an Account
+          </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSignUp}>
+        <form method="POST" className="mt-8 space-y-6" onSubmit={handleSignUp}>
           <input type="hidden" name="remember" value="true" />
           <div className="space-y-4">
             <div>
-              <label htmlFor="name" className="sr-only">Name</label>
+              <label htmlFor="name" className="sr-only">
+                Name
+              </label>
               <input
                 id="name"
                 name="name"
@@ -59,7 +63,9 @@ const SignUp = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="sr-only">Email</label>
+              <label htmlFor="email" className="sr-only">
+                Email
+              </label>
               <input
                 id="email"
                 name="email"
