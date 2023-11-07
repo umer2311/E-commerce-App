@@ -14,4 +14,4 @@ router.delete("/deleteUserByid/:id",checkRole(["Admin"]), user.deleteUser);
 router.put("/updateUserAdmin/:id",checkRole(["Admin"]), user.updateUser);
 router.put("/updateUserByid/:id", user.updateUserInfo);
 
-module.exports=router;
+module.exports=router; 

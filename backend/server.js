@@ -5,6 +5,7 @@ dotenv.config();
 const bodyParser=require('body-parser');
 const mongoose=require('./config/connection');
 const userapis = require('./routes/users');
+const productApi = require('./routes/products');
 
 let cors = require('cors')
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use('/user', userapis);
+app.use('/userProduct', productApi);
 
 app.get('/', (req, res)=>{
   res.send('hey');
