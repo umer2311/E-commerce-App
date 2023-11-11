@@ -1,8 +1,8 @@
 import React from 'react';
-import Pic from "../../../assets/images/product.png"
+//import Pic from "../../../assets/images/product.png"
 
 
-const ProductCard = ({ key,product }) => {
+export const ProductCard = ({ product }) => {
 
   
   const starRating = (numStars) => {
@@ -16,7 +16,7 @@ const ProductCard = ({ key,product }) => {
   };
 
   return (
-    <div key={key} className="container mx-auto bg-white p-4 shadow-md rounded-lg max-w-sm relative transform transition-transform hover:shadow-red-400 border border-red-400">
+    <div key={product._id} className="container mx-auto bg-white p-4 shadow-md rounded-lg max-w-sm relative transform transition-transform hover:shadow-red-400 border border-red-400">
     {product.isTrending && (
         <div  style={{ top: '-17px' }} className="absolute left-1/2 transform -translate-x-1/2 bg-yellow-500 text-white  py-1 px-2">
           Trending
@@ -27,7 +27,8 @@ const ProductCard = ({ key,product }) => {
           Sale ${product.saleDiscount}
         </div>
       )}
-      <img src={Pic} alt={product.name} className="w-full h-auto" />
+      {console.log(`${product.name}`)}
+      <img src={product.images[0]} alt={product.name} className="w-full h-auto" />
       <div className="mt-4">
         <p className="text-gray-600">{product.company}</p>
         <div className='flex justify-between items-center'>
@@ -51,4 +52,4 @@ const ProductCard = ({ key,product }) => {
   );
 };
 
-export default ProductCard;
+

@@ -208,14 +208,14 @@ const Product = () => {
         />
        
             <input
-            type="checkbox"
+            type="text"
             placeholder="IsTrending"
             value={isTrending}
             onChange={(e) => setIsTrending(e.target.value)}
             className="rounded-md px-3 py-2 border focus:outline-none focus:border-blue-500"
           />
          <input
-          type="checkbox"
+          type="text"
           placeholder="IsHotSeller"
           value={isHotSeller}
           onChange={(e) => setIsHotSeller(e.target.value)}
