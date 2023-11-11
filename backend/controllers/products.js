@@ -55,6 +55,58 @@ const getProductById=async(req , res)=> {
     }
 }
 
+const getByCategory=async(req , res)=> {
+    try{
+        const {category}=req.params;
+    let product = await Product.find({categories:category})
+    if(!product){
+        return res.status(404).json({message:"Product NOT FOUND"})
+    }
+    res.json(product)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+}
+
+const getByPrice=async(req , res)=> {
+    try{
+        const {price}=req.params;
+    let product = await Product.find({price:price})
+    if(!product){
+        return res.status(404).json({message:"Product NOT FOUND"})
+    }
+    res.json(product)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+}
+
+const getByRating=async(req , res)=> {
+    try{
+        const {rating}=req.params;
+    let product = await Product.find({ratings:rating})
+    if(!product){
+        return res.status(404).json({message:"Product NOT FOUND"})
+    }
+    res.json(product)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+}
+
+const getByBrand=async(req , res)=> {
+    try{
+        const {brand}=req.params;
+    let product = await Product.find({company:brand})
+    if(!product){
+        return res.status(404).json({message:"Product NOT FOUND"})
+    }
+    res.json(product)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+}
+
 const getTrendingProduct=async(req , res)=> {
     try{
         const product=await Product.find({isTrending:'1'})
@@ -107,5 +159,7 @@ module.exports={
     updateProduct,
     getAllProducts,
     getProductById,
-    getTrendingProduct
+    getTrendingProduct,
+    getByCategory,
+    getByPrice,getByRating,getByBrand
 }

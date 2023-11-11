@@ -15,6 +15,39 @@ const fetchTrending = createAsyncThunk('fetchProduct/fetchTrending', async () =>
   }
 );
 
+const fetchCategory = createAsyncThunk('fetchProduct/fetchCategory', async (category) => {
+  const response = await axios.get(`http://localhost:3500/userProduct/getByCategory/${category}`);
+  console.log('data is loading in thunk wale me')
+  console.log(response)
+  return response.data;
+  }
+);
+
+const fetchPrice = createAsyncThunk('fetchProduct/fetchPrice', async (price) => {
+  const response = await axios.get(`http://localhost:3500/userProduct/getByPrice/${price}`);
+  console.log('data is loading in thunk wale me')
+  console.log(response)
+  return response.data;
+  }
+);
+
+const fetchRating = createAsyncThunk('fetchProduct/fetchRating', async (rating) => {
+  const response = await axios.get(`http://localhost:3500/userProduct/getByRating/${rating}`);
+  console.log('data is loading in thunk wale me')
+  console.log(response)
+  return response.data;
+  }
+);
+
+const fetchBrand = createAsyncThunk('fetchProduct/fetchBrand', async (brand) => {
+  const response = await axios.get(`http://localhost:3500/userProduct/getByBrand/${brand}`);
+  console.log('data is loading in thunk wale me')
+  console.log(response)
+  return response.data;
+  }
+);
+
+
 const fetchProducts = createAsyncThunk('fetchProduct/fetchProducts', async () => {
   const response = await axios.get('http://localhost:3500/userProduct/getAllProducts');
   console.log('data is loading in thunk wale me')
@@ -82,11 +115,27 @@ const productSlice = createSlice({
         state.loading = false;
         state.data = action.payload;
       })
+      .addCase(fetchCategory.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchBrand.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchRating.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchPrice.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
   },
 });
 
 
-export { fetchProducts,addProduct,deleteProduct,updateProduct,fetchTrending };
+export { fetchProducts,addProduct,deleteProduct,updateProduct,fetchTrending ,fetchCategory,fetchBrand,fetchRating,fetchPrice};
 
 
 export default productSlice.reducer;

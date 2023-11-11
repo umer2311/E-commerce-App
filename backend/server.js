@@ -12,7 +12,8 @@ let cors = require('cors')
 let PORT = process.env.PORT || 3500;
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use('/uploads',express.static('uploads'));
+app.use(express.json())
 app.use('/user', userapis);
 app.use('/userProduct', productApi);
 

@@ -73,6 +73,7 @@ const ProductPage = () => {
     return (
         <>
             <Navbar />
+            <img src={'../../../backend/uploads/1699691792925.png'} />
             <div className='flex flex-col justify-between lg:flex-row gap-16 lg:items-center'>
 
                 <div className='flex flex-col gap-6 lg:w-2/4'>
@@ -80,7 +81,7 @@ const ProductPage = () => {
                     <div className='flex flex-row justify-between h-24'>
                         <img src={data.images[0]?.Pic} alt="First Picture" className='w-24 h-24 rounded-md cursor-pointer' onClick={() => setActiveImage(data.images[0].Pic)} />
                         <img src={data.images[1]?.Pic2} alt="2nd picture" className='w-24 h-24 rounded-md cursor-pointer' onClick={() => setActiveImage(data.images[1].Pic2)} />
-                        <img src={data.images[2]?.Pic3} alt="3rd picture" className='w-24 h-24 rounded-md cursor-pointer' onClick={() => setActiveImage(data.images[0].Pic)} />
+                        <img src={"uploads/1699691792925.png"} alt="3rd picture" className='w-24 h-24 rounded-md cursor-pointer' onClick={() => setActiveImage(data.images[0].Pic)} />
                         <img src={data.images[3]?.Pic4} alt="4rd picture" className='w-24 h-24 rounded-md cursor-pointer' onClick={() => setActiveImage(data.images[0].Pic)} />
                     </div>
                 </div>
