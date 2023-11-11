@@ -7,13 +7,13 @@ const initialState = {
   loading: false,
   error: null,
 };
-
-
-
-
-
-
-
+const fetchTrending = createAsyncThunk('fetchProduct/fetchTrending', async () => {
+  const response = await axios.get('http://localhost:3500/userProduct/getTrendingProduct');
+  console.log('data is loading in thunk wale me')
+  console.log(response)
+  return response.data;
+  }
+);
 
 const fetchProducts = createAsyncThunk('fetchProduct/fetchProducts', async () => {
   const response = await axios.get('http://localhost:3500/userProduct/getAllProducts');
@@ -78,11 +78,15 @@ const productSlice = createSlice({
           state.data[updatedProductIndex] = action.payload;
         }
       })
+      .addCase(fetchTrending.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
   },
 });
 
 
-export { fetchProducts,addProduct,deleteProduct,updateProduct };
+export { fetchProducts,addProduct,deleteProduct,updateProduct,fetchTrending };
 
 
 export default productSlice.reducer;

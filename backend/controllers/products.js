@@ -55,6 +55,18 @@ const getProductById=async(req , res)=> {
     }
 }
 
+const getTrendingProduct=async(req , res)=> {
+    try{
+        const product=await Product.find({isTrending:'1'})
+    if(!product){
+        return res.status(404).json({message:"Product NOT FOUND"})
+    }
+    res.json(product)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+}
+
 const deleteProduct=async(req , res)=> {
     try{
     let product = await Product.findByIdAndDelete(req.params.id)
@@ -95,4 +107,5 @@ module.exports={
     updateProduct,
     getAllProducts,
     getProductById,
+    getTrendingProduct
 }

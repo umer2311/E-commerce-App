@@ -6,7 +6,6 @@ import Login from './pages/login'
 import SignUp from './pages/signup'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import thunkStore from "./redux/store";
-import Homepage from './pages/dashboard/homepage';
 import AddProducts from './pages/dashboard/components/products'
 import Homepage from './pages/homepage';
 import Products from './pages/allProducts/index';
