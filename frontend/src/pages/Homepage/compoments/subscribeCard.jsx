@@ -2,7 +2,7 @@ import React from 'react';
 
 const SubscribeCard = () => {
   return (
-    <div className="bg-gray-300 my-6 px-4 py-6 max-w-screen-md mx-auto  shadow-md flex flex-col justify-center items-center">
+    <div className="bg-gray-300 my-6 px-4 py-6 min-w-full  max-w-screen-md mx-auto  shadow-md flex flex-col justify-center items-center">
           <h2 className="text-2xl font-semibold mb-2 text-red-400">Subscribe</h2>
       <p className="text-white mb-4 text-center">
         Subscribe to our newsletter for updates and promotions.

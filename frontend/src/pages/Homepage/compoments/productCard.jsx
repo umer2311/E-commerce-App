@@ -16,8 +16,9 @@ const ProductCard = ({ key,product }) => {
   };
 
   return (
-    <div key={key} className="container mx-auto bg-white p-4 shadow-md rounded-lg max-w-sm relative transform transition-transform hover:shadow-red-400 border border-red-400">
-    {product.isTrending && (
+   <div className='container max-w-screen-md mx-auto'>
+     <div key={key} className=" bg-white p-4 shadow-md rounded-lg max-w-sm relative transform transition-transform hover:shadow-red-400 border border-red-400">
+     {product.isTrending && (
         <div  style={{ top: '-17px' }} className="absolute left-1/2 transform -translate-x-1/2 bg-yellow-500 text-white  py-1 px-2">
           Trending
         </div>
@@ -47,7 +48,7 @@ const ProductCard = ({ key,product }) => {
         </div>
         <p className="text-gray-500">In Stock: {product.stock} units</p>
       </div>
-  
+   </div>
   );
 };
 
