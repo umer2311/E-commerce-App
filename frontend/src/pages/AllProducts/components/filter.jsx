@@ -11,7 +11,21 @@ import {
 } from "@heroicons/react/20/solid";
 
 ///  self grid import
-// import { Grid } from "./Grid";
+import { FilteredItems } from "./filteredItems";
+import { products } from "../../../assets/dummyData";
+import ProductCard from "../../homepage/compoments/productCard";
+
+// For unique data of each field
+
+const getUniqueData = (data, property) => {
+  let newVal = data.map((element) => {
+    return element[property];
+  });
+  console.log(newVal);
+};
+
+// get company data
+const categoryONlyData = getUniqueData(products, "company");
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -32,11 +46,11 @@ const filters = [
     id: "brands",
     name: "Brands", //changing name color to Brand
     options: [
-      { value: "Louis Vitae", label: "Louis Vitae", checked: false },
+      { value: "Olay", label: "Olay", checked: false },
       { value: "GUCCI", label: "GUCCI", checked: false },
-      { value: "L'Oreal Paris", label: "L'Oreal Paris", checked: true },
-      { value: "Glossier", label: "Glossier", checked: false },
-      { value: "Estee Lauder", label: "Estee Lauder", checked: false },
+      { value: "LOreal Paris", label: "L'Oreal Paris", checked: true },
+      { value: "Neutrogena", label: "Neutrogena", checked: false },
+      { value: "Lancome", label: "Lancome", checked: false },
       { value: "MAC Cosmetics", label: "MAC Cosmetics", checked: false },
     ],
   },
@@ -76,9 +90,13 @@ const UnfilledStar = () => {
 const FilledUpStar = () => {
   return <FilledStar className="h-6 w-6 text-yellow-300 " aria-hidden="true" />;
 };
+// --------------------
+
+// ----------------------------
 export default function Filter() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
+  const [selectedOptions, setSelectedOptions] = useState({});
   return (
     <div className="bg-white">
       {/* <UnfilledStar />
@@ -333,14 +351,47 @@ export default function Filter() {
                                 key={option.value}
                                 className="flex items-center"
                               >
-                                <input
+                                {/* <input
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
                                   defaultValue={option.value}
                                   type="checkbox"
                                   defaultChecked={option.checked}
                                   className="h-4 w-4 rounded border-gray-300 text-red-300 focus:ring-red-300"
+                                  // applying onClick
+                                  onClick={() => {
+                                    if (option.checked === true) {
+                                      setSelectedOptions(...option.value);
+                                    }
+                                    console.log(selectedOptions);
+                                  }}
+                                /> */}
+                                <input
+                                  id={`filter-${section.id}-${optionIdx}`}
+                                  name={`${section.id}[]`}
+                                  value={option.value}
+                                  type="checkbox"
+                                  checked={
+                                    selectedOptions[section.id]?.[
+                                      option.value
+                                    ] || false
+                                  }
+                                  className="h-4 w-4 rounded border-gray-300 text-red-300 focus:ring-red-300"
+                                  onChange={() => {
+                                    setSelectedOptions((prevOptions) => ({
+                                      ...prevOptions,
+                                      [section.id]: {
+                                        ...(prevOptions[section.id] || {}),
+                                        [option.value]:
+                                          !prevOptions[section.id]?.[
+                                            option.value
+                                          ],
+                                      },
+                                    }));
+                                    console.log(selectedOptions);
+                                  }}
                                 />
+
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
                                   className="ml-3 text-sm text-gray-600"
@@ -357,9 +408,11 @@ export default function Filter() {
                 ))}
               </form>
 
+              {/* ----------------------------------------- */}
+
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <h1>paste your grid here</h1>
+                <FilteredItems selectedOptions={selectedOptions} />
               </div>
             </div>
           </section>
