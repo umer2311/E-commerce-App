@@ -11,6 +11,8 @@ import Homepage from './pages/homepage';
 import Products from './pages/allProducts/index';
 import SingleProduct from "./pages/product";
 import NotFound from "./pages/NotFound"
+import Cart from "./pages/cart"
+
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
             <Route path="/dashboard/products" element={<AddProducts />} />
             <Route path="/products" element={<Products />} />
             <Route path="/product" element={<SingleProduct />} />
+            <Route path="/cart" element={<Cart />} />
 
                 <Route path="*" element={<NotFound />} />
           </Routes>
