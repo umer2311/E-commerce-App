@@ -9,7 +9,7 @@ import img6 from '../../../assets/images/image-14.png'
 export const Productname = () => {
   return (
    
-    <div className='container mx-auto'>
+    <div className='container max-w-screen-md mx-auto'>
       <div className='inline-flex  mt-10'>
         <img src={img1} className='p-4 w-32 h-12'/>
         
