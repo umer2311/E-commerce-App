@@ -19,7 +19,7 @@ function App() {
    const category="moisturizer"
    const price=80
    const brand="Loreal"
-   const rating=
+   const rating=5
    useEffect(()=>{
     dispatch(fetchTrending())
     dispatch(fetchCategory(category))

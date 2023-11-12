@@ -4,11 +4,12 @@ import { faBell, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '../../../assets/images/logo512.png';
 import NotificationPanel from '../components/notification';
 
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 
 const TopNavbar = ({ adminName, notifications }) => {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNotificationPanel = () => {
     setIsNotificationOpen(!isNotificationOpen);
@@ -30,15 +31,15 @@ const TopNavbar = ({ adminName, notifications }) => {
       </div>
       <div className="flex items-center">
         <div className='flex items-center space-x-10 justify-between  p-10 text-white'>
-        <a href='/users' className="hover:text-gray-300 transition duration-300">
+        <Link as={Link} to='#' className="hover:text-gray-300 transition duration-300">
           Users
-        </a>
-        <a href='/products ' className="hover:text-gray-300 transition duration-300">
+        </Link>
+        <Link as={Link} to='/dashboard/products ' className="hover:text-gray-300 transition duration-300">
           Products
-        </a>
-        <a href='./orders' className="hover:text-gray-300 transition duration-300">
+        </Link>
+        <Link as={Link} to='/orders' className="hover:text-gray-300 transition duration-300">
           Orders
-        </a>
+        </Link>
       </div>
       <div className="relative group mr-3">
         <button

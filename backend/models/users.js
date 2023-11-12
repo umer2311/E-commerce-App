@@ -22,7 +22,8 @@ const mongoSchema = new mongoose.Schema({
             },
             message: 'Invalid email format. Example: abc123!@gmail.com'
         }
-    },password: {
+    },
+    password: {
         type: String,
         required: true,
         

@@ -46,7 +46,7 @@ export const Navbar = () => {
         <div className='flex-10'>
           <ul className='flex gap-3 mr-40'>
             <li>
-            <Link to="/" className='p-4 hover:text-white'>Home</Link>
+            <Link to="/homepage" className='p-4 hover:text-white'>Home</Link>
             </li>
              <li>
               <Link to="/shop" className='p-4 hover:text-white'>Shop</Link>
