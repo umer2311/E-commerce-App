@@ -34,7 +34,7 @@ function App() {
         <Navbar />
         <Hero />
         <Productname />
-            <Categories />
+        <Categories />
             <div >
                 <div className=" container max-w-screen-lg mx-auto my-5">
           <h1 className=" font-normal text-center  text-5xl py-5" >

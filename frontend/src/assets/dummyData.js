@@ -104,42 +104,59 @@ export const products = [
         isHotSeller: true,
         saleDiscount: 20,
     },
+    {
+        name: "Product 232",
+        company: "Company C",
+        categories: "Category 1",
+        ratings: 4,
+        description: {
+            statement: "Product 3 Description",
+            size: "Small",
+            origin: "Country C",
+        },
+        price: 45.0,
+        stock: 120,
+        images: [{ Pic }],
+        isTrending: true,
+        isHotSeller: true,
+        saleDiscount: 20,
+    },
 ];
 
 
 export const blogs = [
     {
         id: 1,
-        image: 'blog-image-1.jpg',
+        pic: '/images/img-10.png',
         title: 'Blog Title 1',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
         id: 2,
-        image: 'blog-image-2.jpg',
+        pic: '/images/img-9.png',
         title: 'Blog Title 2',
         description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     },
     {
         id: 3,
-        image: 'blog-image-3.jpg',
+        pic: '/images/img-7.png',
         title: 'Blog Title 3',
         description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     }, {
         id: 4,
-        image: 'blog-image-3.jpg',
+        pic: '/images/img-25.png',
         title: 'Blog Title 3',
         description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
         id: 45,
-        image: 'blog-image-3.jpg',
+        pic: '/images/img-7.png',
         title: 'Blog Title 3',
         description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
         id: 54,
-        image: 'blog-image-3.jpg',
+        pic: '/images/img-13.png',
         title: 'Blog Title 3',
         description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },

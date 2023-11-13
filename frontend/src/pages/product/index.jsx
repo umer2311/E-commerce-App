@@ -173,7 +173,22 @@ const ProductPage = () => {
                      </div>
                 </div>
             </div>
-        </>
-    )
+            {/* cards*/}
+            <div  className=' mx-2 flex items-center  justify-center' >
+                <div className=" container max-w-screen-lg mx-auto my-5">
+                    <h1 className=" text-center font-medium text-5xl py-5 my-1" >
+                        Trending Products
+                    </h1>
+                    <div className="  flex flex-wrap -m-4">
+                        {products?.slice(0, 3).map((product, index) => (
+                            <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 m-4">
+                                <ProductCard product={product} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            </>
+            )
 }
 export default ProductPage;
