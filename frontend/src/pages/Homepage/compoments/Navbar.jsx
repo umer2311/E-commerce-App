@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faUser, faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import img0 from '../../../assets/images/img-0.png'
 import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
+  const [bagCount,SetbagCount]=useState(8)
   return (
    <div className='bg-red-100'>
     <div className='flex justify-between items-center h-16 max-w-{1240px} mx-auto px-4 mr-14 ml-14 bg-red-300 text-xs text-black'>
@@ -36,10 +37,17 @@ export const Navbar = () => {
 
       </div>
       
-      <div className='space-x-4'>
+      <div className='space-x-4 flex'>
       <FontAwesomeIcon icon={faMagnifyingGlass} className='text-xl'/>
       <FontAwesomeIcon icon={faUser} className='text-xl'/>
-      <FontAwesomeIcon icon={faBagShopping } className='text-xl'/>
+      <div className="relative">
+        <FontAwesomeIcon icon={faBagShopping} className='text-xl ' />
+        {bagCount > 0 && (
+          <span className="bg-red-500 rounded-full w-5 h-5 flex items-center  justify-center   text-white text-base absolute -top-2 -right-2 ">
+            {bagCount}
+          </span>
+        )}
+      </div>
       </div>
 
         
