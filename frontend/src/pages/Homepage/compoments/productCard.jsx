@@ -48,7 +48,7 @@ const ProductCard = ({key,product}) => {
           )}
         </div>
         <p className="text-gray-500">In Stock: {product.stock} units</p>
-      </div>
+      
    </div>
   );
 };
