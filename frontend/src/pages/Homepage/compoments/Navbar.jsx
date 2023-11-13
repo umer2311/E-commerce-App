@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 export const Navbar = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = ( ) => setClick(!click);
+  // const [click, setClick] = useState(false);
+  // const handleClick = ( ) => setClick(!click);
   
   const content = <>
   
@@ -64,12 +64,12 @@ export const Navbar = () => {
           </ul>
         </div>
       </div>
-      <div>
+      {/* <div>
         {click && content}
-      </div>
-      <button className='block sm:hidden transition' onClick={handleClick}>
+      </div> */}
+      {/* <button className='block sm:hidden transition' onClick={handleClick}>
         {click ? <faTimes/> : <faBars/>}
-      </button>
+      </button> */}
       
       <div className='space-x-4'>
       <FontAwesomeIcon icon={faMagnifyingGlass} className='text-xl'/>

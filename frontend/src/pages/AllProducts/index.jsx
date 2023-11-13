@@ -10,7 +10,7 @@ import { Navbar } from "../homepage/compoments/Navbar";
 const Product = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar></Navbar>
       <div className="w-full h-full bg-red-200 lg:flex  items-center  mx-auto lg:px-28  sm:px-0 lg:justify-between">
         <div className="left w-full my-4 lg:w-1/2 lg:my-7 p-2 lg:p-4 ">
           <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 lg:mb-4 font-serif">
@@ -46,7 +46,7 @@ const Product = () => {
       </div>
 
       {/* Filter component */}
-      <Filter />
+      <Filter></Filter>
     </div>
   );
 };

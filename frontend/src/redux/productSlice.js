@@ -56,6 +56,14 @@ const fetchProducts = createAsyncThunk('fetchProduct/fetchProducts', async () =>
   }
 );
 
+const fetchProductId= createAsyncThunk('fetchProduct/fetchProductId', async (id) => {
+  const response = await axios.get(`http://localhost:3500/userProduct/getProductByid/${id}`);
+  console.log('data is loading in thunk wale me')
+  console.log(response.data)
+  return response.data;
+  }
+);
+
 
 const addProduct = createAsyncThunk('fetchProduct/addUserData', async ({form,headers}) => {
     const response = await axios.post('http://localhost:3500/userProduct/createProduct', form,{headers:headers});
@@ -92,6 +100,14 @@ const productSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchProductId.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProductId.fulfilled, (state, action) => {
         state.loading = false;
         state.data = action.payload;
       })
@@ -135,7 +151,7 @@ const productSlice = createSlice({
 });
 
 
-export { fetchProducts,addProduct,deleteProduct,updateProduct,fetchTrending ,fetchCategory,fetchBrand,fetchRating,fetchPrice};
+export { fetchProductId,fetchProducts,addProduct,deleteProduct,updateProduct,fetchTrending ,fetchCategory,fetchBrand,fetchRating,fetchPrice};
 
 
 export default productSlice.reducer;

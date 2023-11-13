@@ -11,6 +11,7 @@ import { blogs, products } from "../../assets/dummyData";
 import SubscribeCard from "./compoments/subscribeCard";
 import { fetchProducts,addProduct,deleteProduct,updateProduct,fetchTrending,fetchCategory,fetchBrand,fetchRating,fetchPrice } from "../../redux/productSlice"
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
 
 
 function App() {
@@ -22,10 +23,10 @@ function App() {
    const rating=5
    useEffect(()=>{
     dispatch(fetchTrending())
-    dispatch(fetchCategory(category))
-    dispatch(fetchPrice(price))
-    dispatch(fetchRating(rating))
-    dispatch(fetchBrand(brand))
+    // dispatch(fetchCategory(category))
+    // dispatch(fetchPrice(price))
+    // dispatch(fetchRating(rating))
+    // dispatch(fetchBrand(brand))
    },[]);
 
     return (
@@ -41,10 +42,12 @@ function App() {
     </h1>
          <div className="  flex flex-wrap -m-4">
       {data && data.map((product,index) => (
-        
         <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 m-4">
-          <ProductCard  key={index} product={product}/>
+         <Link to={`/product/${product._id}`}>
+          <ProductCard   product={product}/>
+          </Link>
         </div>
+       
 ))}
                     </div>
                     </div>
@@ -55,9 +58,11 @@ function App() {
     </h1>
           <div className="flex flex-wrap -m-4">
       {blogs?.map((blog, index) => (
+       
         <div key={index} className="w-full sm:w-1/2 md:w-1/4  p-4 m-4 ">
           <BlogCard blog={blog} />
         </div>
+        
       ))}
               </div>
           </div> 

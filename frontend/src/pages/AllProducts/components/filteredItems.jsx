@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../../homepage/compoments/productCard";
+import ProductCard from "../../Homepage/compoments/productCard";
 import { products } from "../../../assets/dummyData";
 
 export const FilteredItems = () => {
