@@ -11,10 +11,10 @@ import Homepage from './pages/homepage';
 import Products from './pages/allProducts/index';
 import SingleProduct from "./pages/product";
 import NotFound from "./pages/NotFound"
+import ContactUs from "./pages/contactUs";
 import Cart from './pages/Cart';
 
 function App() {
-
   return (
     <Provider store={thunkStore}>
       <Router>
@@ -29,12 +29,12 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/product" element={<SingleProduct />} />
 
-                <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/contact" element={<ContactUs />} />
           </Routes>
         </div>
       </Router>
-    </ Provider>
-
+    </Provider>
   );
 }
 
