@@ -11,6 +11,7 @@ import Homepage from './pages/homepage';
 import Products from './pages/allProducts/index';
 import SingleProduct from "./pages/product";
 import NotFound from "./pages/NotFound"
+import Cart from './pages/Cart';
 
 function App() {
 
