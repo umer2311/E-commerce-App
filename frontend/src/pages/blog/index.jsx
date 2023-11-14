@@ -7,7 +7,7 @@ import  img32 from '../../assets/images/Beauty-Routine.png'
 import  img33 from '../../assets/images/Ingredient.png'
 
 
-export const Blog = () => {
+const Blog = () => {
   return (
   <div className='container mx-auto '>
     <div className='bg-red-200 max-w-full h-28 flex justify-center gap-20 pt-10 '>
@@ -87,3 +87,4 @@ export const Blog = () => {
   </div>
   )
 }
+export default Blog;
