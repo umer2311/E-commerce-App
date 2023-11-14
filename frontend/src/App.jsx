@@ -12,6 +12,7 @@ import Products from './pages/allProducts/index';
 import SingleProduct from "./pages/product";
 import NotFound from "./pages/NotFound"
 import ContactUs from "./pages/contactUs";
+import AboutUs from "./pages/aboutUs";
 import Cart from './pages/Cart';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/dashboard/products" element={<AddProducts />} />
             <Route path="/products" element={<Products />} />
             <Route path="/product" element={<SingleProduct />} />
+            <Route path="/about" element={<AboutUs />} />
 
             <Route path="*" element={<NotFound />} />
             <Route path="/contact" element={<ContactUs />} />

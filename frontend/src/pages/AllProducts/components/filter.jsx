@@ -17,15 +17,15 @@ import ProductCard from "../../homepage/compoments/productCard";
 
 // For unique data of each field
 
-const getUniqueData = (data, property) => {
-  let newVal = data.map((element) => {
-    return element[property];
-  });
-  console.log(newVal);
-};
+// const getUniqueData = (data, property) => {
+//   let newVal = data.map((element) => {
+//     return element[property];
+//   });
+//   console.log(newVal);
+// };
 
-// get company data
-const categoryONlyData = getUniqueData(products, "company");
+// // get company data
+// const categoryONlyData = getUniqueData(products, "company");
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
