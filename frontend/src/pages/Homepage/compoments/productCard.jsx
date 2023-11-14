@@ -26,11 +26,11 @@ const ProductCard = ({product}) => {
           Trending
         </div>
       )}
-      {product.saleDiscount && (
+      {product.saleDiscount && product.saleDiscount>0? (
         <div style={{ top: '-17px' }} className="absolute left-1/2 transform -translate-x-1/2 bg-red-400 text-white  py-1 px-2">
           Sale ${product.saleDiscount}
         </div>
-      )}
+      ):[]}
       
       <img src={`http://localhost:3500/${pathArray[0]}`} alt={product.name} className="w-full h-auto" />
       <div className="mt-4">
