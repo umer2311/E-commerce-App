@@ -1,8 +1,8 @@
 import React from 'react';
 //import Pic from "../../../assets/images/product.png"
+import Product from '../../product'
 
-
-const ProductCard = ({key,product}) => {
+const ProductCard = ({product}) => {
  const pathArray= product.images.split(',');
   
   const starRating = (numStars) => {
@@ -14,20 +14,23 @@ const ProductCard = ({key,product}) => {
     }
     return stars;
   };
+  const handleClick=()=>{
+    <Product product={product }></Product>
+  };
 
   return (
     
-    <div key={key} className="container mx-auto bg-white p-4 shadow-md rounded-lg max-w-sm relative transform transition-transform hover:shadow-red-400 border border-red-400">
+    <div onClick={handleClick} key={product._id} className="container mx-auto bg-white p-4 shadow-md rounded-lg max-w-sm relative transform transition-transform hover:shadow-red-400 border border-red-400">
     {product.isTrending && (
         <div  style={{ top: '-17px' }} className="absolute left-1/2 transform -translate-x-1/2 bg-yellow-500 text-white  py-1 px-2">
           Trending
         </div>
       )}
-      {product.saleDiscount && (
+      {product.saleDiscount && product.saleDiscount>0? (
         <div style={{ top: '-17px' }} className="absolute left-1/2 transform -translate-x-1/2 bg-red-400 text-white  py-1 px-2">
           Sale ${product.saleDiscount}
         </div>
-      )}
+      ):[]}
       
       <img src={`http://localhost:3500/${pathArray[0]}`} alt={product.name} className="w-full h-auto" />
       <div className="mt-4">
@@ -48,8 +51,8 @@ const ProductCard = ({key,product}) => {
           )}
         </div>
         <p className="text-gray-500">In Stock: {product.stock} units</p>
-      
-   </div>
+      </div>
+  
   );
 };
 

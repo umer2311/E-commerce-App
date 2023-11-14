@@ -13,7 +13,7 @@ import {
 ///  self grid import
 import { FilteredItems } from "./filteredItems";
 import { products } from "../../../assets/dummyData";
-import ProductCard from "../../homepage/compoments/productCard";
+import ProductCard from "../../Homepage/compoments/productCard";
 
 // For unique data of each field
 

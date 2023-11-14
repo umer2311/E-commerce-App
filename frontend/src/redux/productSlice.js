@@ -3,7 +3,13 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  data: [],
+  product: [],
+  productID:[],
+  category:[],
+  trending:[],
+  price:[],
+  rating:[],
+  brand:[],
   loading: false,
   error: null,
 };
@@ -56,6 +62,14 @@ const fetchProducts = createAsyncThunk('fetchProduct/fetchProducts', async () =>
   }
 );
 
+const fetchProductId= createAsyncThunk('fetchProduct/fetchProductId', async (id) => {
+  const response = await axios.get(`http://localhost:3500/userProduct/getProductByid/${id}`);
+  console.log('data is loading in thunk wale me')
+  console.log(response.data)
+  return response.data;
+  }
+);
+
 
 const addProduct = createAsyncThunk('fetchProduct/addUserData', async ({form,headers}) => {
     const response = await axios.post('http://localhost:3500/userProduct/createProduct', form,{headers:headers});
@@ -93,49 +107,57 @@ const productSlice = createSlice({
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.product = action.payload;
+      })
+      .addCase(fetchProductId.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProductId.fulfilled, (state, action) => {
+        state.loading = false;
+        state.productID = action.payload;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
       .addCase(addProduct.fulfilled, (state, action) => {
-        state.data = [...state.data, action.payload];
+        state.product = [...state.product, action.payload];
       })
       .addCase(deleteProduct.fulfilled, (state, action) => {
-        state.data = state.data.filter(item => item.id !== action.payload); 
+        state.product = state.product.filter(item => item.id !== action.payload); 
       })
       .addCase(updateProduct.fulfilled, (state, action) => {
-        const updatedProductIndex = state.data.findIndex(item => item._id === action.payload._id);
+        const updatedProductIndex = state.product.findIndex(item => item._id === action.payload._id);
         if (updatedProductIndex !== -1) {
-          state.data[updatedProductIndex] = action.payload;
+          state.product[updatedProductIndex] = action.payload;
         }
       })
       .addCase(fetchTrending.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.trending = action.payload;
       })
       .addCase(fetchCategory.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.category = action.payload;
       })
       .addCase(fetchBrand.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.brand = action.payload;
       })
       .addCase(fetchRating.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.rating = action.payload;
       })
       .addCase(fetchPrice.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.price = action.payload;
       })
   },
 });
 
 
-export { fetchProducts,addProduct,deleteProduct,updateProduct,fetchTrending ,fetchCategory,fetchBrand,fetchRating,fetchPrice};
+export { fetchProductId,fetchProducts,addProduct,deleteProduct,updateProduct,fetchTrending ,fetchCategory,fetchBrand,fetchRating,fetchPrice};
 
 
 export default productSlice.reducer;
