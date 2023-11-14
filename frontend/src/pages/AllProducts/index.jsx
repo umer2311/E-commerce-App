@@ -4,11 +4,57 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import SerumImg from "../../../src/assets/images/SkinLightningBottle.webp";
 // import Filter from "./components/filter";
-import Filter from "./components/filter";
+// import Filter from "./components/filter";
 import { Navbar } from "../homepage/compoments/Navbar";
+import FilterSortComponent from "./components/filterSort"
+import { useSelector } from "react-redux";
+import ProductCard from "../Homepage/compoments/productCard"
 
 const Product = () => {
+const  data   = useSelector((state) => state?.product?.product  );
+console.log(data, "cards data")
+  const filters = [
+  {
+    id: "brands",
+    name: "Brands", 
+    options: [
+      { value: "olay", label: "Olay", checked: false },
+      { value: "gucci", label: "GUCCI", checked: false },
+      { value: "loreal", label: "L'Oreal Paris", checked: true },
+      { value: "neutrogena", label: "Neutrogena", checked: false },
+      { value: "lancome", label: "Lancome", checked: false },
+      { value: "macCosmetics", label: "MAC Cosmetics", checked: false },
+    ],
+  },
+  {
+    id: "category",
+    name: "Category",
+    options: [
+      { value: "lotion", label: "New Arrivals", checked: false },
+      { value: "moisturizers", label: "Sale", checked: false },
+      { value: "sunscreen", label: "Travel", checked: true },
+      { value: "organization", label: "Organization", checked: false },
+    ],
+  },
+  {
+    id: "Ratings",
+    name: "Ratings",
+    options: [
+      { value: 1, label: "1 star", checked: false },
+      { value: 2, label: "2 Stars", checked: false },
+      { value: 3, label: "3 Stars", checked: false },
+      { value: 4, label: "4 Stars", checked: false },
+      { value: 5, label: "5 Stars", checked: false },
+    ],
+  },
+];
+
+  const handleFilterChange = (selectedFilters) => {
+    console.log("Selected Filters:", selectedFilters);
+
+  }; 
   return (
+    <>
     <div>
       <Navbar></Navbar>
       <div className="w-full h-full bg-red-200 lg:flex  items-center  mx-auto lg:px-28  sm:px-0 lg:justify-between">
@@ -46,8 +92,32 @@ const Product = () => {
       </div>
 
       {/* Filter component */}
-      <Filter></Filter>
-    </div>
+      {/* <Filter></Filter> */}
+     </div>
+
+
+      <div className="flex">
+      {/* Left side - Filter Component */}
+      <div className="w-1/4 p-4">
+        <FilterSortComponent filters={filters} onFilterChange={handleFilterChange} />
+      </div>
+
+      {/* Right side - Product Cards */}
+      <div className="w-3/4 p-4">
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-4  gap-7">
+            {data ? (<>
+              {data?.map((product, index) => (
+                <div key={index} className="">
+                  <ProductCard product={product} />
+                </div>
+              ))}
+            </>
+            ) : (<> <h4>No products Found! </h4></>)}
+        </div>
+      </div>
+        </div>
+        </>
   );
 };
 

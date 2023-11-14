@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import  { Navbar } from '../Homepage/compoments/navbar';
+import   {Navbar}  from '../homepage/compoments/Navbar';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -55,6 +55,7 @@ const Cart = () => {
                       <th className="text-left font-semibold">Product</th>
                       <th className="text-left font-semibold">Price</th>
                       <th className="text-left font-semibold">Quantity</th>
+                      <th className="text-left font-semibold">   </th>
                       <th className="text-left font-semibold">Total</th>
                     </tr>
                   </thead>
@@ -93,7 +94,17 @@ const Cart = () => {
                             </button>
                           </div>
                         </td>
+                        <td>
+                        <button
+                            onClick={e=>{setOpenModal(item.id)}}
+                            type="button"
+                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                          >
+                            Remove
+                          </button>
+                        </td>
                         <td className="py-4">${(item.price * item.quantity).toFixed(2)}</td>
+
                       </tr>
                     ))}
                   </tbody>
