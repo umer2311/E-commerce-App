@@ -10,7 +10,9 @@ import AddProducts from './pages/dashboard/components/products'
 import Homepage from './pages/homepage';
 import Products from './pages/allProducts/index';
 import SingleProduct from "./pages/product";
-import NotFound from "./pages/NotFound"
+import NotFound from "./pages/NotFound";
+// import Blog from "./pages/blog";
+import { Blog } from './pages/blog';
 import ContactUs from "./pages/contactUs";
 import AboutUs from "./pages/aboutUs";
 import Cart from './pages/Cart';
@@ -29,6 +31,7 @@ function App() {
             <Route path="/dashboard/products" element={<AddProducts />} />
             <Route path="/products" element={<Products />} />
             <Route path="/product" element={<SingleProduct />} />
+            <Route path="/blog" element={<Blog/>} />
             <Route path="/about" element={<AboutUs />} />
 
             <Route path="*" element={<NotFound />} />
