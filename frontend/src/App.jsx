@@ -9,7 +9,9 @@ import thunkStore from "./redux/store";
 import Homepage from './pages/homepage';
 import Products from './pages/allProducts/index';
 import SingleProduct from "./pages/product";
-import NotFound from "./pages/NotFound"
+import NotFound from "./pages/NotFound";
+// import Blog from "./pages/blog";
+import { Blog } from './pages/blog';
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
             <Route path="/homepage" element={<Homepage />} />
             <Route path="/products" element={<Products />} />
             <Route path="/product" element={<SingleProduct />} />
+            <Route path="/blog" element={<Blog/>} />
 
                 <Route path="*" element={<NotFound />} />
           </Routes>
