@@ -19,14 +19,14 @@ export const Blog = () => {
       <FontAwesomeIcon icon={faXmark} className='text-xl align-left'/>
 
     </div>
-    <div className='flex gap-3 px-20 mx-auto py-20'>
+    {/* <div className='flex gap-3 px-20 mx-auto py-20'>
       <FontAwesomeIcon icon={faHouse} className='text-xl align-left'/>
       <p className='text-gray-400'>Home</p>
       <FontAwesomeIcon icon={faGreaterThan} className='text-xs text-gray-400 mt-2'/>
       <p className='text-gray-400'>Blog</p>
       <FontAwesomeIcon icon={faGreaterThan} className='text-xs text-gray-400 mt-2'/>
       <p>Ingedient Spotlight: What You Need To Know About Collage</p>
-    </div>
+    </div> */}
     <div className='bg-gray-300 w-32 mx-auto'>
       <p className='text-center'>Uncategorized</p>
     </div>
