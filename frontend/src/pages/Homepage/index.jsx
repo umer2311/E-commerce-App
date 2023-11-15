@@ -32,7 +32,7 @@ function App() {
 
     return (
         <>
-            
+            <Navbar></Navbar>
             <Hero />
             <Productname />
             <Categories />
@@ -72,6 +72,7 @@ function App() {
                 
 
             </div>
+            <Footer></Footer>
         </>
     )
 }

@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import Dashboard from './pages/dashboard'
 import Login from './pages/login'
 import SignUp from './pages/signup'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import thunkStore from "./redux/store";
 import AddProducts from './pages/dashboard/components/products'
 import Homepage from './pages/homepage';
@@ -17,14 +17,20 @@ import  Blog  from './pages/blog';
 import ContactUs from "./pages/contactUs";
 import AboutUs from "./pages/aboutUs";
 import Cart from './pages/cart';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  // const location = useLocation();
+  // const hideNavbarPaths = ['/Login', '/SignUp'];
+  // const isNavbarHidden = hideNavbarPaths.includes(location.pathname);
+
   return (
     <Provider store={thunkStore}>
       <Router>
-        <div>
-          <Navbar></Navbar>
+        {/* {!isNavbarHidden && <Navbar></Navbar>} */}
+        
           <Routes>
+            
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
@@ -36,12 +42,11 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/blog" element={<Blog/>} />
             <Route path="/about" element={<AboutUs />} />
-
             <Route path="*" element={<NotFound />} />
             <Route path="/contact" element={<ContactUs />} />
+            
           </Routes>
-          <Footer></Footer>
-        </div>
+          
       </Router>
     </Provider>
   );

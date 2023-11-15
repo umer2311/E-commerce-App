@@ -20,7 +20,7 @@ const Product = () => {
   const [images, setImages] = useState('');
   const [editingProductId, setEditingProductId] = useState(null);
   const dispatch = useDispatch();
-  const { data, loading, error } = useSelector((state) => state.product);
+  const data = useSelector((state) => state.product.product);
 
   const token = localStorage.getItem('token');
 
@@ -130,13 +130,7 @@ const Product = () => {
     setEditingProductId(null);
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+ 
   return (
     <div className="container mx-auto mt-8">
       <h1 className="text-3xl mb-4">{editingProductId ? 'Edit Product' : 'Add New Product'}</h1>

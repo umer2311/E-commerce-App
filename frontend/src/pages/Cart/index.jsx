@@ -5,12 +5,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom'
 import ProductCard from '../Homepage/compoments/productCard';
 import { addToCart } from '../../redux/cartSlice';
+import Footer from '../homepage/compoments/footer';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   //const dispatch = useDispatch();
   const items=useSelector((state)=>state.cart.items)
-  
+  const pathArray = items.map((item) => {
+    return item?.product.images.split(',')[0];
+  });
 
   useEffect(() => {
 
@@ -49,6 +52,7 @@ const Cart = () => {
 
   return (
     <>
+    <Navbar></Navbar>
       <div className="bg-gray-100 h-screen py-8">
         <div className="container mx-auto px-4">
           
@@ -67,7 +71,7 @@ const Cart = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {items?.map((item) => (
+                    {items?.map((item,index) => (
                       // const pathArray= items.images.split(',');
 
                       <tr key={item?.product?._id}>
@@ -75,7 +79,7 @@ const Cart = () => {
                           <div className="flex items-center">
                             <img
                               className="h-16 w-16 mr-4"
-                              src={``}
+                              src={`http://localhost:3500/${pathArray[index]}`}
                               alt="Product image"
                             />
                             <span className="font-semibold">{item?.product?.name}</span>
@@ -105,7 +109,7 @@ const Cart = () => {
                         </td>
                         <td>
                         <button
-                            onClick={e=>{setOpenModal(item.id)}}
+                            
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >
@@ -148,6 +152,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };

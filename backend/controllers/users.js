@@ -43,7 +43,7 @@ const LoginUser =async(req,res) =>{
         const user =await User.findOne({email}) //const user has the whole object containing email and password
         if(user && await bcrypt.compare(password,user.password))
         {
-            const token = jwt.sign({userId: user.id, email:user.email, role:user.role}, process.env.PRIVATE_KEY,{expiresIn: "10 minute"})
+            const token = jwt.sign({userId: user.id, email:user.email, role:user.role}, process.env.PRIVATE_KEY,{expiresIn: "100 minute"})
             res.status(200).json({token,user})
             console.log("nawaz")
         }

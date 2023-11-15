@@ -6,11 +6,14 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import { FaTimes } from 'react-icons/fa';
 // import { CiMenuFries } from 'react-icons/ci';
-
+import { useLocation } from 'react-router-dom';
 export const Navbar = () => {
   // const [click, setClick] = useState(false);
   // const handleClick = ( ) => setClick(!click);
-  
+  const location = useLocation();
+  const hideNavbarPaths = ['/login', '/signup'];
+  const isNavbarHidden = hideNavbarPaths.includes(location.pathname);
+
    const items=useSelector((state)=>state.cart.items)
    console.log(items.length)
   const content = <>
@@ -79,13 +82,15 @@ export const Navbar = () => {
           >
            
             <FontAwesomeIcon icon={faBagShopping} className='text-xl' />
-            </button>
-        </Link>
             {items.length  && (
-          <span className="inline-flex items-center rounded-md bg-red-50 mb-7 -ml-3 px-2 py-3 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+          <span className="bg-red-500 rounded-full w-5 h-5 flex items-center  justify-center   text-white text-base absolute -top-1 -right-1 ">
             {items.length}
           </span>
         )}
+            </button>
+
+        </Link>
+           
           
         
       </div>

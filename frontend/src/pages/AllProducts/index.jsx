@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import ProductCard from "../Homepage/compoments/productCard"
 import { fetchProducts, addProduct, deleteProduct, updateProduct, fetchTrending, fetchCategory, fetchBrand, fetchRating, fetchPrice } from "../../redux/productSlice"
+import Footer from "../homepage/compoments/footer";
 const Product = () => {
   const dispatch = useDispatch();
 const  data   = useSelector((state) => state?.product?.product  );
@@ -59,6 +60,7 @@ console.log(data, "cards data")
   }; 
   return (
     <>
+    <Navbar></Navbar>
     <div>
      
       <div className="w-full h-full bg-red-200 lg:flex  items-center  mx-auto lg:px-28  sm:px-0 lg:justify-between">
@@ -125,6 +127,7 @@ console.log(data, "cards data")
         </div>
       </div>
         </div>
+        <Footer></Footer>
         </>
   );
 };

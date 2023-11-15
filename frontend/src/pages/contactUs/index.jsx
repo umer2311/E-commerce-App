@@ -2,12 +2,16 @@ import React from "react";
 import { MapPinIcon, PhoneIcon, ClockIcon } from "@heroicons/react/24/outline";
 // import mapStores from "../../assets/images/map.png";
 import locationStore from "../../assets/images/map.png";
+import { Navbar } from "../homepage/compoments/Navbar";
+import Footer from "../homepage/compoments/footer";
 function ContactUs() {
   return (
     <div className="container mx-auto px-2">
+      <Navbar></Navbar>
       <Header />
       <Main />
       <img src={locationStore} className="w-full h-full my-16" />
+      <Footer></Footer>
     </div>
   );
 }
@@ -19,8 +23,9 @@ function Header() {
         Keep in touch with us
       </h1>
       <p className="text-xl text-gray-950 text-center">
-        We’re talking about clean beauty gift sets, of course – and we’ve got a
-        bouquet of beauties for yourself or someone you love.
+        We’re talking about clean beauty gift sets,<br></br>
+        of course – and we’ve got a bouquet of beauties<br></br>
+         for yourself or someone you love.<br></br>
       </p>
     </div>
   );
@@ -85,6 +90,8 @@ function Contact() {
 
 function OpenHours() {
   return (
+    <>
+   
     <div className=" p-2">
       <ClockIcon className="w-9  bg-red-300 rounded-full p-1 inline-block mr-2" />
       <h2 className="text-2xl font-semibold text-gray-800 inline-block">
@@ -97,6 +104,8 @@ function OpenHours() {
         <span className="text-gray-700">Sunday: </span> Close
       </p>
     </div>
+    
+    </>
   );
 }
 

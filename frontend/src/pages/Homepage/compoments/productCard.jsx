@@ -44,7 +44,7 @@ const ProductCard = ({product}) => {
         {product?.saleDiscount ? (
             <div className='flex items-center gap-2 text-center '>
               <p className="text-gray-500 line-through text-base">${product.price}</p>
-              <p className="text-red-400 text-2xl font-bold ">${product.saleDiscount}</p>
+              <p className="text-red-400 text-2xl font-bold ">${product.discountedPrice}</p>
             </div>
           ) : (
             <p className="text-2xl font-bold mt-2 text-red-400">${product.price}</p>
