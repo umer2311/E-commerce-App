@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import   {Navbar}  from '../homepage/compoments/Navbar';
+import { fetchTrending,fetchProductId } from '../../redux/productSlice'
+import { useSelector, useDispatch } from 'react-redux';
+import {Link} from 'react-router-dom'
+import ProductCard from '../Homepage/compoments/productCard';
+import { addToCart } from '../../redux/cartSlice';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  //const dispatch = useDispatch();
+  const items=useSelector((state)=>state.cart.items)
+  
 
   useEffect(() => {
 
@@ -28,20 +36,19 @@ const Cart = () => {
   }, []);
 
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return items.reduce((total, item) => total + item?.product?.price * item?.quantity, 0);
   };
 
   const handleQuantityChange = (productId, newQuantity) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item
+        item?.product?.id === productId ? { ...item, quantity: newQuantity } : item
       )
     );
   };
 
   return (
     <>
-     <Navbar/>
       <div className="bg-gray-100 h-screen py-8">
         <div className="container mx-auto px-4">
           
@@ -60,34 +67,36 @@ const Cart = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {cartItems.map((item) => (
-                      <tr key={item.id}>
+                    {items?.map((item) => (
+                      // const pathArray= items.images.split(',');
+
+                      <tr key={item?.product?._id}>
                         <td className="py-4">
                           <div className="flex items-center">
                             <img
                               className="h-16 w-16 mr-4"
-                              src="https://via.placeholder.com/150"
+                              src={``}
                               alt="Product image"
                             />
-                            <span className="font-semibold">{item.name}</span>
+                            <span className="font-semibold">{item?.product?.name}</span>
                           </div>
                         </td>
-                        <td className="py-4">${item.price.toFixed(2)}</td>
+                        <td className="py-4">${item?.product?.price}</td>
                         <td className="py-4">
                           <div className="flex items-center">
                             <button
                               className="border rounded-md py-2 px-4 mr-2 hover:bg-red-300"
                               onClick={() =>
-                                handleQuantityChange(item.id, item.quantity - 1)
+                                handleQuantityChange(item?.product?._id, item?.quantity - 1)
                               }
                             >
                               -
                             </button>
-                            <span className="text-center w-8">{item.quantity}</span>
+                            <span className="text-center w-8">{item?.quantity}</span>
                             <button
                               className="border rounded-md py-2 px-4 ml-2 hover:bg-red-300"
                               onClick={() =>
-                                handleQuantityChange(item.id, item.quantity + 1)
+                                handleQuantityChange(item?.product._id, item?.quantity + 1)
                               }
                             >
                               +
@@ -103,7 +112,7 @@ const Cart = () => {
                             Remove
                           </button>
                         </td>
-                        <td className="py-4">${(item.price * item.quantity).toFixed(2)}</td>
+                        <td className="py-4">${(item.product.price * item.quantity).toFixed(2)}</td>
 
                       </tr>
                     ))}

@@ -32,7 +32,7 @@ function App() {
 
     return (
         <>
-            <Navbar />
+            
             <Hero />
             <Productname />
             <Categories />
@@ -69,7 +69,7 @@ function App() {
                 </div>
 
                 <SubscribeCard />
-                <Footer />
+                
 
             </div>
         </>

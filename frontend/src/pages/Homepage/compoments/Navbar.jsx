@@ -49,16 +49,16 @@ export const Navbar = () => {
             <Link to="/homepage" className='p-4 hover:text-white'>Home</Link>
           </li>
           <li>
-            <Link to="/shop" className='p-4 hover:text-white'>Shop</Link>
-          </li>
-          <li>
             <Link to="/products" className='p-4 hover:text-white'>Products</Link>
           </li>
           <li>
             <Link to="/blog" className='p-4 hover:text-white'>Blogs</Link>
           </li>
           <li>
-            <Link to="/aboutUs" className='p-4 hover:text-white'>About Us</Link>
+            <Link to="/contact" className='p-4 hover:text-white'>Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/about" className='p-4 hover:text-white'>About Us</Link>
           </li>
         </ul>
       </div>

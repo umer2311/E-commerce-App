@@ -10,26 +10,7 @@ import  img33 from '../../assets/images/Ingredient.png'
 const Blog = () => {
   return (
   <div className='container mx-auto '>
-    <div className='bg-red-200 max-w-full h-28 flex justify-center gap-20 pt-10 '>
-      <FontAwesomeIcon icon={faLessThan} className='text-xl'/>
-      <p className='text-xs'>
-      For shopping assistance, click on the chat icon to connect with an in in store Client <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Advisor to get photos, videos, or advice on products.
-      </p>
-      <FontAwesomeIcon icon={faGreaterThan} className='text-xl'/>
-      <FontAwesomeIcon icon={faXmark} className='text-xl align-left'/>
 
-    </div>
-    <div className='flex gap-3 px-20 mx-auto py-20'>
-      <FontAwesomeIcon icon={faHouse} className='text-xl align-left'/>
-      <p className='text-gray-400'>Home</p>
-      <FontAwesomeIcon icon={faGreaterThan} className='text-xs text-gray-400 mt-2'/>
-      <p className='text-gray-400'>Blog</p>
-      <FontAwesomeIcon icon={faGreaterThan} className='text-xs text-gray-400 mt-2'/>
-      <p>Ingedient Spotlight: What You Need To Know About Collage</p>
-    </div>
-    <div className='bg-gray-300 w-32 mx-auto'>
-      <p className='text-center'>Uncategorized</p>
-    </div>
     <div className='text-5xl flex justify-center mt-14 '>
       <h1 className='font-serif leading-normal'>
       Ingredient spotlight: what you need <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to know about collage
@@ -84,7 +65,7 @@ const Blog = () => {
         <li className='bg-gray-300 py-1 pl-3 pr-3 text-xs'>Cleanser&Toner</li>
       </ul>
     </div>
-  </div>
-  )
+  </div>
+  )
 }
 export default Blog;

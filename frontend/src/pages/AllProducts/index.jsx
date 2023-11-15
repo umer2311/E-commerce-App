@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import "./components/index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import SerumImg from "../../../src/assets/images/SkinLightningBottle.webp";
-// import Filter from "./components/filter";
-// import Filter from "./components/filter";
-import { Navbar } from "../homepage/compoments/Navbar";
-import FilterSortComponent from "./components/filterSort"
-import { useSelector } from "react-redux";
-import ProductCard from "../Homepage/compoments/productCard"
+import SerumImg from "../../../public/images/Fenty Beauty is launching 50 shades of concealer.jpg";
 
+import { Navbar } from "../homepage/compoments/Navbar";
+import FilterSortComponent from "./components/filterSort";
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
+import ProductCard from "../Homepage/compoments/productCard"
+import { fetchProducts, addProduct, deleteProduct, updateProduct, fetchTrending, fetchCategory, fetchBrand, fetchRating, fetchPrice } from "../../redux/productSlice"
 const Product = () => {
+  const dispatch = useDispatch();
 const  data   = useSelector((state) => state?.product?.product  );
+useEffect(()=>{
+  dispatch(fetchProducts())
+},[dispatch])
 console.log(data, "cards data")
   const filters = [
   {
@@ -56,25 +60,27 @@ console.log(data, "cards data")
   return (
     <>
     <div>
-      <Navbar></Navbar>
+     
       <div className="w-full h-full bg-red-200 lg:flex  items-center  mx-auto lg:px-28  sm:px-0 lg:justify-between">
         <div className="left w-full my-4 lg:w-1/2 lg:my-7 p-2 lg:p-4 ">
           <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 lg:mb-4 font-serif">
-            Serum
+            Skin Care
           </h2>
 
           <p className="text-xs lg:text-sm xl:text-base font-semibold">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto vel
-            quasi dolorum molestias consequuntur sint temporibus, exercitationem
-            quo, aliquam, sunt aut adipisci provident tempore accusamus? Eaque
-            quidem quaerat iusto, fugiat vero saepe voluptatibus cum nostrum
-            aperiam odio unde dolorem nam doloribus aliquam excepturi tenetur?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum
-            reprehenderit impedit eaque
+            Investing in a well-rounded skincare routine can do wonders
+            for your skin's health and appearance. Begin with a gentle 
+            cleanser to rid your face of impurities, followed by a toner 
+            to balance its pH levels. Moisturizing is key to maintaining 
+            hydration and preventing dryness, while a quality sunscreen  
+            shields your skin from harmful UV rays, preserving its youth
+            fulness. Consider incorporating a serum targeting specific  
+            concerns, such as fine lines or dark spots, to enhance the overall
+            effectiveness of your routine. With a thoughtful selection of products
+            tailored to your skin's needs, you can cultivate and nourished complexion.
             <br></br>
             <br />
-            <br />? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Eius veritatis, sit voluptatem illum sunt vitae.
+            
           </p>
 
           <div className="underline mt-2 lg:mt-4">
@@ -108,9 +114,11 @@ console.log(data, "cards data")
         <div className="grid md:grid-cols-2 lg:grid-cols-4  gap-7">
             {data ? (<>
               {data?.map((product, index) => (
+                <Link to={`/product/${product._id}`}>
                 <div key={index} className="">
                   <ProductCard product={product} />
                 </div>
+                </Link>
               ))}
             </>
             ) : (<> <h4>No products Found! </h4></>)}

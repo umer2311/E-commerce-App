@@ -12,7 +12,6 @@ import { addToCart } from '../../redux/cartSlice';
 const ProductPage = () => {
 
     const dispatch = useDispatch();
-
     const data = useSelector((state) => state.product.productID);
     const trending=useSelector((state)=>state.product.trending)
     const items=useSelector((state)=>state.cart.items)
@@ -25,7 +24,7 @@ const ProductPage = () => {
     useEffect(() => {
         console.log("umer")
         dispatch(fetchProductId(productId))
-        //dispatch(fetchTrending())
+        dispatch(fetchTrending())
     }, [productId])
 
     
@@ -87,8 +86,8 @@ const ProductPage = () => {
     }
 
 
-    // const [images, setImages] = useState(0)
-    // console.log(images)
+     const [images, setImages] = useState(0)
+     console.log(images)
 
     const [activeImg, setActiveImage] = useState(0)
 
@@ -104,7 +103,7 @@ const ProductPage = () => {
 
     return (
         <>
-            <Navbar></Navbar>
+            
             <div className='flex flex-col justify-between lg:flex-row gap-16 lg:items-center'>
 
                 <div className='flex flex-col gap-6 lg:w-2/4'>
