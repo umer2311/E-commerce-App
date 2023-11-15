@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import   {Navbar}  from '../homepage/compoments/Navbar';
+import CheckoutForm from './components/checkoutForm';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -38,11 +39,29 @@ const Cart = () => {
       )
     );
   };
+    const [showForm, setShowForm] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState('cashOnDelivery');
+
+  const handleCheckoutClick = () => {
+    setShowForm(true);
+  };
+
+  const handlePaymentMethodChange = (e) => {
+    setPaymentMethod(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted with shipping details and payment method:', {
+      paymentMethod,
+      // Add other form fields here
+    });
+  };
+
 
   return (
     <>
-     <Navbar/>
-      <div className="bg-gray-100 h-screen py-8">
+      <div className="bg-gray-100 py-8">
         <div className="container mx-auto px-4">
           
           <h1 className="text-3xl font-bold font-sans mb-4">Shopping Cart</h1>
@@ -131,14 +150,19 @@ const Cart = () => {
                   <span className="font-semibold">Total</span>
                   <span className="font-semibold">${(calculateTotal() + 1.99).toFixed(2)}</span>
                 </div>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">
+                {!showForm && <button onClick={handleCheckoutClick} className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">
                   Checkout
-                </button>
+                </button>}
               </div>
+               {/* {showForm && <CheckoutForm />} */}
             </div>
           </div>
         </div>
+        <div className='container mx-auto  '>
+          {showForm && <CheckoutForm />}
+          </div>
       </div>
+      
     </>
   );
 };

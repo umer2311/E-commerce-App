@@ -13,11 +13,14 @@ import NotFound from "./pages/NotFound"
 import ContactUs from "./pages/contactUs";
 import AboutUs from "./pages/aboutUs";
 import Blog from "./pages/blog"
+import { Navbar } from './pages/homepage/compoments/Navbar';
+import Cart from "./pages/Cart/index"
 
 function App() {
   return (
     <Provider store={thunkStore}>
       <Router>
+        <Navbar></Navbar>
         <div>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -30,6 +33,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/contact" element={<ContactUs />} />
           </Routes>
         </div>
