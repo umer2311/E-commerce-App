@@ -45,16 +45,16 @@ function StoreLocation() {
       </h2>
       <ul className=" list-inside list-none lg:indent-11">
         <li>
-          <span className="text-gray-700 text-sm">Store 1: </span>42nd Street,
-          New York
+          <span className="text-gray-700 text-sm">Store 1: </span>B Block,
+          Gulblerb II, Lahore
         </li>
         <li>
-          <span className="text-gray-700 text-sm">Store 2: </span>72 E Houston
-          Street, New York
+          <span className="text-gray-700 text-sm">Store 2: </span>A Block, Blue
+          Area, Islamabad
         </li>
         <li>
-          <span className="text-gray-700 text-sm">Store 3: </span>26th Street,
-          Miami FL, USA
+          <span className="text-gray-700 text-sm">Store 3: </span>J Block,
+          Sarafa Bazar, Karachi
         </li>
       </ul>
     </div>
@@ -77,7 +77,7 @@ function Contact() {
       </p>
 
       <p className="lg:indent-11">
-        <span className="text-gray-700">Email:</span> info@breweries.com
+        <span className="text-gray-700">Email:</span> info@beautymall.com
       </p>
     </div>
   );

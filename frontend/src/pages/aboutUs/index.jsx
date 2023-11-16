@@ -22,6 +22,8 @@ import Story from "../../assets/images/story3.svg";
 import Img from "../../assets/images/img-11.png";
 import Mission from "../../assets/images/mission.jpg";
 
+import CarouselPage from "./carousel/carosoul";
+
 function AboutUs() {
   return (
     <div className="bg-white min-h-screen">
@@ -93,9 +95,12 @@ function AboutUs() {
       </div>
 
       <div className=" py-2 grid md:grid-cols-2">
+        <div className="col-span-2">
+          <CarouselPage />
+        </div>
         {/* mission */}
 
-        <div className="left w-full  bg-red-100 p-10  overflow-scroll lg:overflow-hidden ">
+        {/* <div className="left w-full  bg-red-100 p-10  overflow-scroll lg:overflow-hidden ">
           <h2 className="text-2xl font-bold text-black mb-4">Our Mission</h2>
           <p className="text-slate-500 text-lg ">
             We are a company that values integrity, quality, and community. Our
@@ -107,13 +112,17 @@ function AboutUs() {
             we can achieve more than we could alone.
           </p>
         </div>
-        <div className="right w-full rounded-r-sm bg-gray-200">
-          <img
+
+        <div className="right w-full rounded-r-sm bg-gray-200"> */}
+        {/* carousel */}
+        {/* <img
             src={Mission}
             alt="img"
             className="object-contain w-full h-full"
-          />
-          {/* <div className="bg-red-200 w-3/6 h-5/6 mx-auto py-3 rounded-lg my-9">
+          /> */}
+
+        {/* -------- */}
+        {/* <div className="bg-red-200 w-3/6 h-5/6 mx-auto py-3 rounded-lg my-9">
             <h1 className="text-center">Enriched products</h1>
             <div className="bg-gray-200 h-80  ">
               <div className="h-5/6 relative">
@@ -130,7 +139,7 @@ function AboutUs() {
               </div>
             </div>
           </div> */}
-        </div>
+        {/* </div> */}
 
         {/* story */}
         <div className="w-full rounded-r-sm bg-gray-200">
