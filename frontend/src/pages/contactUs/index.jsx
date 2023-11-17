@@ -2,17 +2,18 @@ import React from "react";
 import { MapPinIcon, PhoneIcon, ClockIcon } from "@heroicons/react/24/outline";
 // import mapStores from "../../assets/images/map.png";
 import locationStore from "../../assets/images/map.png";
-import { Navbar } from "../homepage/compoments/Navbar";
-import Footer from "../homepage/compoments/footer";
+import { Navbar } from "../Homepage/compoments/Navbar";
+import Footer from "../Homepage/compoments/footer";
 function ContactUs() {
   return (
+    <><Navbar></Navbar>
     <div className="container mx-auto px-2">
-      <Navbar></Navbar>
       <Header />
       <Main />
       <img src={locationStore} className="w-full h-full my-16" />
-      <Footer></Footer>
     </div>
+    <Footer></Footer>
+    </>
   );
 }
 
@@ -23,9 +24,8 @@ function Header() {
         Keep in touch with us
       </h1>
       <p className="text-xl text-gray-950 text-center">
-        We’re talking about clean beauty gift sets,<br></br>
-        of course – and we’ve got a bouquet of beauties<br></br>
-         for yourself or someone you love.<br></br>
+        We’re talking about clean beauty gift sets, of course – and we’ve got a
+        bouquet of beauties for yourself or someone you love.
       </p>
     </div>
   );
@@ -33,16 +33,19 @@ function Header() {
 
 function Main() {
   return (
+    
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
       <StoreLocation />
       <Contact />
       <OpenHours />
     </div>
+    
   );
 }
 
 function StoreLocation() {
   return (
+    
     <div className=" p-2">
       <MapPinIcon className="w-9  bg-red-300 rounded-full p-1 inline-block mr-2" />
       <h2 className="text-2xl font-semibold text-gray-800 inline-block ">
@@ -50,16 +53,16 @@ function StoreLocation() {
       </h2>
       <ul className=" list-inside list-none lg:indent-11">
         <li>
-          <span className="text-gray-700 text-sm">Store 1: </span>42nd Street,
-          New York
+          <span className="text-gray-700 text-sm">Store 1: </span>B Block,
+          Gulblerb II, Lahore
         </li>
         <li>
-          <span className="text-gray-700 text-sm">Store 2: </span>72 E Houston
-          Street, New York
+          <span className="text-gray-700 text-sm">Store 2: </span>A Block, Blue
+          Area, Islamabad
         </li>
         <li>
-          <span className="text-gray-700 text-sm">Store 3: </span>26th Street,
-          Miami FL, USA
+          <span className="text-gray-700 text-sm">Store 3: </span>J Block,
+          Sarafa Bazar, Karachi
         </li>
       </ul>
     </div>
@@ -82,7 +85,7 @@ function Contact() {
       </p>
 
       <p className="lg:indent-11">
-        <span className="text-gray-700">Email:</span> info@breweries.com
+        <span className="text-gray-700">Email:</span> info@beautymall.com
       </p>
     </div>
   );
@@ -90,8 +93,6 @@ function Contact() {
 
 function OpenHours() {
   return (
-    <>
-   
     <div className=" p-2">
       <ClockIcon className="w-9  bg-red-300 rounded-full p-1 inline-block mr-2" />
       <h2 className="text-2xl font-semibold text-gray-800 inline-block">
@@ -104,9 +105,7 @@ function OpenHours() {
         <span className="text-gray-700">Sunday: </span> Close
       </p>
     </div>
-    
-    </>
   );
 }
 
-export default ContactUs;
+export default ContactUs;

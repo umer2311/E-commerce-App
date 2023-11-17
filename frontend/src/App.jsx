@@ -16,8 +16,7 @@ import Footer from './pages/homepage/compoments/footer';
 import  Blog  from './pages/blog';
 import ContactUs from "./pages/contactUs";
 import AboutUs from "./pages/aboutUs";
-import Cart from './pages/cart';
-import { useLocation } from 'react-router-dom';
+import Cart from "./pages/Cart"
 
 function App() {
   // const location = useLocation();
@@ -43,6 +42,7 @@ function App() {
             <Route path="/blog" element={<Blog/>} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/contact" element={<ContactUs />} />
             
           </Routes>

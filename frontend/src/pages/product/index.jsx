@@ -1,13 +1,13 @@
 
 import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { Navbar } from '../homepage/compoments/Navbar';
+import { Navbar } from '../Homepage/compoments/Navbar';
 import { fetchTrending,fetchProductId } from '../../redux/productSlice'
 import { useSelector, useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom'
 import ProductCard from '../Homepage/compoments/productCard';
 import { addToCart } from '../../redux/cartSlice';
-import Footer from '../homepage/compoments/footer';
+import Footer from '../Homepage/compoments/footer';
 //import React, { useEffect } from 'react'
 
 const ProductPage = () => {

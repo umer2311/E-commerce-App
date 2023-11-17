@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
 
-import { Navbar } from "./compoments/Navbar";
+
 import { Hero } from "./compoments/Hero";
+
 import { Productname } from "./compoments/Productname";
 import { Categories } from "./compoments/Categories";
 import ProductCard from "../Homepage/compoments/productCard";
 import BlogCard from "./compoments/blogCard";
-import Footer from "./compoments/footer";
+
 import { blogs, products } from "../../assets/dummyData";
 import SubscribeCard from "./compoments/subscribeCard";
 import { fetchProducts, addProduct, deleteProduct, updateProduct, fetchTrending, fetchCategory, fetchBrand, fetchRating, fetchPrice } from "../../redux/productSlice"
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
-
-
+import { Navbar } from "./compoments/Navbar";
+import Footer from "./compoments/footer";
 function App() {
     const dispatch = useDispatch();
     const  data   = useSelector((state) => state.product.trending  );

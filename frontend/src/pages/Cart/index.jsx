@@ -1,59 +1,60 @@
 import React, { useState, useEffect } from 'react';
-import   {Navbar}  from '../homepage/compoments/Navbar';
+import   {Navbar}  from '../Homepage/compoments/Navbar';
 import { fetchTrending,fetchProductId } from '../../redux/productSlice'
 import { useSelector, useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom'
 import ProductCard from '../Homepage/compoments/productCard';
 import { addToCart } from '../../redux/cartSlice';
-import Footer from '../homepage/compoments/footer';
+import Footer from '../Homepage/compoments/footer';
+import CheckoutForm from './components/checkoutForm';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  
   //const dispatch = useDispatch();
   const items=useSelector((state)=>state.cart.items)
   const pathArray = items.map((item) => {
     return item?.product.images.split(',')[0];
   });
-
-  useEffect(() => {
-
-        // Axios.get('your-api-endpoint')
-        // .then(response => {
-        //   // Update state with fetched data
-        //   setCartItems(response.data);
-        // })
-        // .catch(error => {
-        //   console.error('Error fetching data:', error);
-        // });
-    
-    // some static data as a placeholder
-    const staticData = [
-      { id: 1, name: 'Product 1', price: 19.99, quantity: 1 },
-      { id: 2, name: 'Product 2', price: 29.99, quantity: 2 },
-      { id: 1, name: 'Product 3', price: 13, quantity: 1 },
-      { id: 2, name: 'Product 4', price: 5.99, quantity: 2 },
-      // Add more products as needed
-    ];
-
-    setCartItems(staticData);
-  }, []);
+  const total=0;
+  const Cart={items,total,}
+  
 
   const calculateTotal = () => {
-    return items.reduce((total, item) => total + item?.product?.price * item?.quantity, 0);
+    total=items.reduce((total, item) => total + item?.product?.price * item?.quantity, 0);
+    return total;
   };
 
   const handleQuantityChange = (productId, newQuantity) => {
-    setCartItems((prevItems) =>
       prevItems.map((item) =>
         item?.product?.id === productId ? { ...item, quantity: newQuantity } : item
       )
-    );
   };
+    const [showForm, setShowForm] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState('cashOnDelivery');
+
+  const handleCheckoutClick = () => {
+    setShowForm(true);
+  };
+
+  const handlePaymentMethodChange = (e) => {
+    setPaymentMethod(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted with shipping details and payment method:', {
+      paymentMethod,
+      // Add other form fields here
+    });
+  };
+
 
   return (
     <>
     <Navbar></Navbar>
       <div className="bg-gray-100 h-screen py-8">
+      <div className="bg-gray-100 py-8">
         <div className="container mx-auto px-4">
           
           <h1 className="text-3xl font-bold font-sans mb-4">Shopping Cart</h1>
@@ -144,15 +145,19 @@ const Cart = () => {
                   <span className="font-semibold">Total</span>
                   <span className="font-semibold">${(calculateTotal() + 1.99).toFixed(2)}</span>
                 </div>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">
+                {!showForm && <button onClick={handleCheckoutClick} className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">
                   Checkout
-                </button>
+                </button>}
               </div>
+               {/* {showForm && <CheckoutForm />} */}
             </div>
           </div>
         </div>
+        <div className='container mx-auto  '>
+          {showForm && <CheckoutForm />}
+          </div>
       </div>
-      <Footer></Footer>
+      </div>
     </>
   );
 };
